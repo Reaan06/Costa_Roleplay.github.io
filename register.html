@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse - Costa Roleplay</title>
+    <link rel="icon" href="Logo Costa.jpeg" type="image/jpeg">
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Página de registro (solo para pruebas). En producción añade validación y captcha. -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="Logo Costa.jpeg" alt="Logo Costa" class="nav-logo-img">
+                <span>COSTA ROLEPLAY</span>
+            </div>
+            <div class="nav-actions">
+                <a href="index.html" class="nav-login">Inicio</a>
+                <a href="login.html" class="nav-login">Iniciar sesión</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top:120px;">
+        <div class="login-wrap">
+            <div class="login-card">
+                <div class="login-brand">
+                    <img src="Logo Costa.jpeg" alt="Logo Costa" class="login-logo">
+                    <h2>Crear cuenta</h2>
+                </div>
+
+                <form id="registerForm" class="login-form" novalidate>
+                    <div class="form-field">
+                        <label for="regUser">Usuario</label>
+                        <div class="input-icon"><i class="fa fa-user"></i><input id="regUser" name="user" type="text" placeholder="Usuario" required></div>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="regEmail">Correo (opcional)</label>
+                        <div class="input-icon"><i class="fa fa-envelope"></i><input id="regEmail" name="email" type="email" placeholder="correo@ejemplo.com"></div>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="regPass">Contraseña</label>
+                        <div class="input-icon"><i class="fa fa-lock"></i><input id="regPass" name="pass" type="password" placeholder="Contraseña (mín 6 caracteres)" required></div>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="regPass2">Repetir Contraseña</label>
+                        <div class="input-icon"><i class="fa fa-lock"></i><input id="regPass2" name="pass2" type="password" placeholder="Repite la contraseña" required></div>
+                    </div>
+
+                    <div class="form-actions">
+                        <label class="checkbox"><input type="checkbox" id="agreeTerms" required><span>Acepto los términos</span></label>
+                        <a href="login.html" class="forgot-link">¿Ya tienes cuenta?</a>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="submit" class="btn-principal">Crear cuenta</button>
+                        <a href="index.html" class="btn-secondary">Cancelar</a>
+                    </div>
+
+                    <p id="registerMessage" class="login-message"></p>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="funciones.js"></script>
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Costa Roleplay - Servidor Colombiano </title>
+    <link rel="icon" href="Logo Costa.jpeg" type="image/jpeg">
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+        <!--
+                index.html - Página principal
+                - Contiene las secciones principales: inicio, sobre, conceptos, normativa y contacto.
+                - Normativa: el contenido de las páginas está en el contenedor oculto `#datos-paginas`.
+                    Edita allí los atributos `data-titulo`, `data-numero` y `data-contenido` para mantener
+                    la normativa como fuente única de verdad. Evita duplicar texto en `funciones.js`.
+                - El formulario de inicio de sesión fue movido a `login.html`. El registro está en `register.html`.
+                - Para cambios en estilos y colores edita `estilos.css` (variables en :root).
+                - Para comportamiento JS edita `funciones.js`.
+                - Nota sobre API: las llamadas de login/registro usan `api/*.php`. Sirve el proyecto
+                    desde un servidor local (por ejemplo, PHP built-in o Live Server) para que las
+                    peticiones `fetch` funcionen correctamente (no usar `file://`).
+        -->
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="Logo Costa.jpeg" alt="Logo Costa" class="nav-logo-img">
+                <span>COSTA ROLEPLAY</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#inicio" class="nav-link" onclick="mostrarSeccion('inicio')">Inicio</a></li>
+                <li><a href="#sobre" class="nav-link" onclick="mostrarSeccion('sobre')">Sobre Nosotros</a></li>
+                <li><a href="#conceptos" class="nav-link" onclick="mostrarSeccion('conceptos')">Conceptos de Rol</a></li>
+                <li><a href="#normativa" class="nav-link" onclick="mostrarSeccion('normativa')">Normativa</a></li>
+                <li><a href="#contactos" class="nav-link" onclick="mostrarSeccion('contacto')">Contacto</a></li>
+            </ul>
+            <div class="nav-actions">
+                <!-- Ahora el login es una página separada: login.html -->
+                <a href="login.html" class="nav-login">Iniciar sesión</a>
+                <div id="userArea" class="user-area" style="display:none">
+                    <span id="userGreeting" class="user-greeting"></span>
+                    <a href="profile.html" class="nav-login">Mi perfil</a>
+                    <button id="btnLogout" class="nav-logout">Cerrar sesión</button>
+                </div>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Inicio -->
+    <section id="inicio" class="seccion activa">
+        <div class="hero">
+            <div class="hero-content">
+                <div class="hero-brand">
+                    <img src="Logo Costa.jpeg" alt="Logo Costa" class="hero-logo">
+                    <h1 class="titulo-principal">COSTA ROLEPLAY</h1>
+                </div>
+                <p class="subtitulo">La mejor comunidad de roleplay te espera</p>
+                <p class="descripcion-hero">Únete a una experiencia de roleplay única donde el rol serio y justo se prioriza</p>
+                <button class="btn-principal" onclick="mostrarSeccion('sobre')">Comienza tu aventura</button>
+            </div>
+            <div class="particulas" id="particulas"></div>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Nosotros -->
+    <section id="sobre" class="seccion">
+        <div class="container">
+            <h2 class="titulo-seccion">Sobre Nosotros</h2>
+            <div class="contenido-dos-columnas">
+                <div class="columna">
+                    <h3>Nuestra Trayectoria</h3>
+                    <p>
+                        Costa RP nace de la pasión de un equipo dedicado a crear la mejor experiencia de roleplay en la comunidad hispanohablante. 
+                        Con años de experiencia acumulada en diferentes servidores de roleplay, contamos con administradores comprometidos y jugadores leales.
+                    </p>
+                    <p>
+                        Nuestro servidor esta siendo cuidadosamente diseñado para ofrecer dinámicas realistas, personajes únicos y una comunidad respetuosa. 
+                        Cada miembro es importante, y cada acción cuenta en nuestro mundo.
+                    </p>
+                    <p>
+                        Estamos dia a dia mejorando el servidor con nuevos sistemas unicos que hacen que la experiencia de juego sea totalmente fluida y entretenida. Para que no tengas un limite de creatividad.
+                    </p>
+                </div>
+                <div class="columna">
+                    <h3>¿Por qué elegirnos?</h3>
+                    <ul class="lista-ventajas">
+                        <li><i class="fas fa-star"></i> Administración imparcial y profesional</li>
+                        <li><i class="fas fa-check-circle"></i> Comunidad real, madura y respetuosa</li>
+                        <li><i class="fas fa-server"></i> Servidor estable con óptimo rendimiento</li>
+                        <li><i class="fas fa-calendar-alt"></i> Eventos y dinámicas diarias </li>
+                        <li><i class="fas fa-headset"></i> Soporte 24/7 y equipo atento</li>
+                        <li><i class="fas fa-cogs"></i> Sistema de economía realista</li>
+                        <li><i class="fas fa-shield-alt"></i> Máxima seguridad y protección</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Sección Misión y Visión -->
+            <div class="contenido-dos-columnas">
+                <div class="columna">
+                    <h3>Misión</h3>
+                    <p>
+                        Nuestra mision es desarrollar un servidor de roleplay en el que lo realista y el buen rol sea la prioridad, brindando a nuestros jugadores un entorno seguro y justo donde puedan expresar su creatividad y vivir experiencias inolvidables.
+                    </p>
+                </div>
+                <div class="columna">
+                    <h3>Visión</h3>
+                    <p>
+                        Tenemos una vision muy ambisiosa que es ser el servidor #1 en mta español, confiamos en que lo vamos a lograr si seguimos trabajando duro cada dia agregando sistemas y mejorando el servidor
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Conceptos de Rol -->
+    <section id="conceptos" class="seccion">
+        <div class="container">
+            <h2 class="titulo-seccion">Conceptos de Rol</h2>
+            <p class="subtexto-seccion">Haz clic en cualquiera de las casillas para que puedas aprender los conceptos que se aplican en el servidor</p>
+            <div class="grid-conceptos">
+                <div class="tarjeta-concepto" onclick="abrirDetalleConcepto('roleplay')">
+                    <div class="icono-concepto">
+                        <i class="fas fa-theater-masks"></i>
+                    </div>
+                    <h3>¿Qué es el Roleplay?</h3>
+                    <p class="pequeno">Haz clic para saber más</p>
+                </div>
+
+                <div class="tarjeta-concepto" onclick="abrirDetalleConcepto('ic-ooc')">
+                    <div class="icono-concepto">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>IC vs OOC</h3>
+                    <p class="pequeno">Haz clic para saber más</p>
+                </div>
+
+                <div class="tarjeta-concepto" onclick="abrirDetalleConcepto('uso-del-/me-y-/do')">
+                    <div class="icono-concepto">
+                        <i class="fas fa-ban"></i>
+                    </div>
+                    <h3>Uso del /me y /do</h3>
+                    <p class="pequeno">Haz clic para saber más</p>
+                </div>
+
+                <div class="tarjeta-concepto" onclick="abrirDetalleConcepto('entornos')">
+                    <div class="icono-concepto">
+                        <i class="fas fa-exclamation-circle"></i>
+                    </div>
+                    <h3>Entornos</h3>
+                    <p class="pequeno">Haz clic para saber más</p>
+                </div>
+
+                <div class="tarjeta-concepto" onclick="abrirDetalleConcepto('conceptos-para-sanciones')">
+                    <div class="icono-concepto">
+                        <i class="fas fa-crosshairs"></i>
+                    </div>
+                    <h3>Conceptos Para Sanciones</h3>
+                    <p class="pequeno">Haz clic para saber más</p>
+                </div>
+
+                <div class="tarjeta-concepto" onclick="abrirDetalleConcepto('conceptos-para-baneos')">
+                    <div class="icono-concepto">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <h3>Conceptos Para Baneos</h3>
+                    <p class="pequeno">Haz clic para saber más</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Conceptos de Rol -->
+    <div id="modalConceptos" class="modal-conceptos">
+        <div class="modal-contenido-conceptos">
+            <button class="cerrar-modal" onclick="cerrarDetalleConcepto()">&times;</button>
+            <div id="conceptoDetalle"></div>
+        </div>
+    </div>
+
+    <!-- Sección Normativa - Tipo Libro -->
+    <section id="normativa" class="seccion">
+        <div class="container">
+            <h2 class="titulo-seccion">Manual de Normativa</h2>
+            <div class="libro-normativa">
+                <aside class="indice-libro">
+                    <h3>Normativa General</h3>
+                    <nav class="menu-indice">
+                        <button class="indice-btn activo" onclick="irAPagina(0)">📄 Robos A Personas</button>
+                        <button class="indice-btn" onclick="irAPagina(1)">📋 Prohibiciones</button>
+                        <button class="indice-btn" onclick="irAPagina(2)">⚠️ Secuestros</button>
+                        <button class="indice-btn" onclick="irAPagina(3)">👮 Policía Y Ejercito</button>
+                        <button class="indice-btn" onclick="irAPagina(4)">🏛️ Gobierno</button>
+                        <button class="indice-btn" onclick="irAPagina(5)">💰 DIAN</button>
+                        <button class="indice-btn" onclick="irAPagina(6)">🚗 Transito Y Transporte</button>
+                        <button class="indice-btn" onclick="irAPagina(7)">🚑 EMS</button>
+                        <button class="indice-btn" onclick="irAPagina(8)">🔗 Organizaciones Ilegales</button>
+                        <button class="indice-btn" onclick="irAPagina(9)">📦 Ítems En Inventario</button>
+                        <button class="indice-btn" onclick="irAPagina(10)">🎭 Durante Rol</button>
+                        <button class="indice-btn" onclick="irAPagina(11)">🏎️ Vehículos Exclusivos</button>
+                    </nav>
+                </aside>
+
+                <div class="pagina-libro">
+                    <div class="encabezado-libro">
+                        <h2 id="titulo-pagina">Robos A Personas</h2>
+                        <span id="numero-pagina" class="numero-pagina">Pág. 1</span>
+                    </div>
+
+                    <div class="contenido-pagina" id="contenido-pagina">
+                        <p><strong>Aquí irá la normativa de robos a personas...</strong></p>
+                        <p>
+                            Establece las reglas y límites para los robos a personas en el servidor.
+                        </p>
+                    </div>
+
+                    <div class="controles-libro">
+                        <button class="btn-pagina" onclick="paginaAnterior()" id="btn-anterior">← Anterior</button>
+                        <span class="indicador-pagina" id="indicador-pagina">1 / 13</span>
+                        <button class="btn-pagina" onclick="paginaSiguiente()" id="btn-siguiente">Siguiente →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Datos de las páginas (ocultos) -->
+            <div style="display: none;" id="datos-paginas">
+                <div data-titulo="Robos A Personas" data-numero="1" data-contenido='<p><strong>Robos a personas</strong></p><p>Se podrá robar a otros jugadores, siempre y cuando estén 2 policías en servicio; en caso de no haber policías en servicio no se podrá robar, ni cometer actos ilícitos.</p><p>Se podrá retener en el lugar a la víctima durante 30 minutos, teniendo como fin robar o no. Una vez transcurrido este tiempo, se proseguirá a dejar libre a la persona.</p><p>Para poder robar a usuarios y/o tener armas deberás tener 15 horas jugadas; de lo contrario no podrás efectuar el robo o cualquier acto ilícito.</p><p>No podrás robar a usuarios que no cumplan un mínimo de 10 horas jugadas (Deberás pedirle a un staff que te brinde la información del usuario); al no hacer este paso se considera NA (Noob Abuser) por robarle a un usuario que no cumple con las horas requeridas.</p><p>No podrás robar a personas utilizando armas largas (AK-47), tampoco se podrá robar utilizando Vehículos Deportivos De Gama Alta. Se tomará como NIP el uso de estos vehículos y arma anteriormente mencionada.</p><p>El uso de armas como (AK-47 y M4) solo será permitido para enfrentamientos y roles avanzados.</p><p>En todo acto delictivo las personas que efectúen este deberán realizar los dos tipos de entorno: el de inicio del robo y el de finalización del mismo; si estos no se efectúan, el rol quedará nulo y se podrá reportar.</p><p>Solo se puede robar el 50% del dinero a las personas; lo mismo aplica para los ítems, excepto llaves.</p><p>No se permite robar más del 50% de los cargadores; se podrá robar todas las armas que posea en inventario excepto (Armas Legales: DK, MP5, M4, ESCOPETA).</p><p>Para efectuar estos robos a usuarios deberán tener obligatoriamente Bandana.</p><p><strong>Prohibiciones relacionadas</strong></p><ul><li>Al tener las llantas del vehículo dañadas no podrás conducir por más de 8 segundos con ellas; deberás avisar a mecánicos.</li><li>Armas como MP5/DK/ESCOPETA/M4 quedan prohibidas para uso civil, solo uso exclusivo de fuerzas públicas.</li><li>Está totalmente prohibido robar ítems de dotación de Policía, Ejército, Fiscalía, Sura, Mecánicos.</li><li>Prohibida la estafa de facciones — sanción: baneo 600 horas o permanente si es muy grave.</li><li>Prohibida la venta de cosas IC de manera OOC — baneo permanente sin derecho a apelación.</li><li>Prohibido robar a trabajadores públicos y empresas privadas (ej. trabajadores de empresas de ruta).</li><li>Prohibido evadir un rol; debes continuar el rol hasta el final y reportar después de finalizar.</li><li>Prohibido el uso de cualquier menú que genere ventaja dentro del servidor.</li><li>Prohibido enviar mensajes OOC por canales IC; se considerará MG aunque incluya la etiqueta OOC.</li><li>Prohibido pertenecer a una facción por beneficio hacia otra (p. ej. estar en SURA y dar curación a un CARTEL).</li><li>Prohibido portar más de 100 millones sin razón válida.</li></ul>'></div>
+                <div data-titulo="Prohibiciones" data-numero="2" data-contenido='<p><strong>Prohibiciones</strong></p><p>Al tener las llantas del vehículo (Moto, Carro) no podrás conducir por más de 8 segundos con ella de esta manera; deberás avisar a mecánicos.</p><p>Las armas como MP5/DK/ESCOPETA/M4 quedan prohibidas para uso civil, solo uso exclusivo de fuerzas públicas.</p><p>Está totalmente prohibido robar items de dotación; Policía, Ejército, Fiscalía, Sura, Mecánicos.</p><p>Está prohibida la estafa de facciones y será un baneo de 600 horas o, si es muy grave, permanente.</p><p>Prohibida la venta de cosas IC de manera OOC (Ban Permanente) sin derecho a apelaciones.</p><p>Está prohibido robarle a trabajadores públicos y empresas privadas como por ejemplo trabajadores de empresas de ruta.</p><p>Queda prohibido evadir un rol por la razón de que reportarás un AR presente en el rol; para esto deberás continuar el rol hasta el final y reportar después de este finalizar.</p><p>Está totalmente prohibido el uso de algún menú que genere ventaja dentro del servidor.</p><p>Queda prohibido enviar mensajes OOC por canales IC; sin importar si fue enviado con (OOC) se considerará MG de igual manera.</p><p>Está totalmente prohibido pertenecer a una facción por beneficio hacia otra. Ejemplo: estar en SURA mientras estás en un CARTEL/MAFIA/BANDA para proporcionarles curación a sus compañeros.</p><p>En facciones está totalmente prohibido tener vínculos con jugadores que utilicen cheats (hacks); en caso de que se compruebe alguna complicidad con dicho jugador la facción a la que pertenezca llevará una advertencia inapelable. Si ves que un jugador está sospechoso o estás seguro de que está haciendo trampa, lo puedes reportar por medio de ticket con pruebas claras para aplicar el respectivo ban permanente.</p><p>Está prohibido portar más de 100 millones sin una razón válida.</p>'></div>
+                <div data-titulo="Secuestros" data-numero="3" data-contenido='<p><strong>Secuestros: Reglas Generales</strong></p><p>Máx. 2 secuestros por día por facción y por secuestro solo pueden tener máximo 2 víctimas.</p><p>Usa ropa de facción y bandana si tu facción tiene.</p><p>El secuestro no podrá iniciar si no hay presencia de un staff en modo /spec.</p><p>Si una facción sufre el secuestro de un miembro o miembros tendrá que acudir a salvarlo obligatoriamente; en caso que no acudan tendrán que justificar la razón de manera válida. (Caso omiso: ADVERTENCIA).</p><p><strong>Líderes de Facciones (Policía, Ejército, Médicos, Mecánicos)</strong></p><p>Solo puedes secuestrarlos si abres un ticket al Encargado de Facciones. Solo 1 vez cada 15 días.</p><p><strong>Requisitos Según Víctima</strong></p><p>Civiles: Deben haber al menos 5 policías/militares conectados (usa F7 para ver).</p><p>Policías o Militares: Deben haber al menos 10 policías/militares conectados (sin contar al secuestrado).</p><p>Policías Rango Bajo (Sargento Mayor o menos): Se tratan como civiles.</p><p>Policías Rango Alto: Requiere más presencia policial y organización.</p><p><strong>Mínimo de Participantes</strong></p><p>Para realizar cualquier secuestro, debe haber un mínimo de 3 integrantes ilegales participando activamente en el rol.</p><p><strong>Botines Permitidos</strong></p><p>Civiles o Policías Rango Bajo: Máx. rescate: 200 millones.</p><p>Policías Rango Alto: Máx. rescate: 400 millones.</p><p>Presidentes: Máx. rescate: 890 millones.</p><p>Ministros: Máx. rescate: 180 millones.</p><p><strong>Entornos Obligatorios</strong></p><p>Inicio del secuestro:<br>/entorno INFORMACIONES DE QUIENES SECUESTRAN | A QUIEN SECUESTRAN | VEHICULO | ZONA | LUGAR A DONDE LO LLEVAN</p><p>Huida del lugar:<br>/entorno INFORMACIONES DE QUIENES SECUESTRAN | COMO SE ENCUENTRA EL SECUESTRADO | VEHICULO | ZONA EN DONDE LO DEJARON (En caso que nadie vaya y no se haga negociación)</p><p>Si llega la Policía: Si ambas partes negocian y cumplen el acuerdo, debes liberar al rehén.</p><p><strong>Secuestros al Gobierno (Presidente/Ministros)</strong></p><p>Presidente: 15 PD/EJC conectados mínimo. Plan detallado por ticket. Rescate: 350M.</p><p>Ministros: 10 ilegales presentes. Rescate: 180M.</p><p>Deben entregarse con vida. Plan debe incluir: Captura, Negociación, Escape, Plan B (opcional).</p>'></div>
+                <div data-titulo="Policía Y Ejercito" data-numero="4" data-contenido='<p><strong>Policía y Ejército</strong></p><p>Para postular como policía no debe tener órdenes de captura activas. Hydras: El uso del hydra es totalmente exclusivo para operaciones especiales del ejército nacional, como ataque a destrucción total o ataque aéreo en defensa de la ciudadanía o soberanía; también pueden usarlos como avión de reconocimiento para tomar imágenes o reconocer una zona.</p><p>El uso de vehículos blindados (FBI Truck, S.W.A.T, Enforcer) solo será permitido en casos de alertas rojas, roles especiales o roles solicitados por ticket; Robos a banco y allanamientos pueden requerir autorización.</p><p>En la ciudad solo existen 2 hydras; 1 de Ataque y otro de Reconocimiento.</p><p>Hunter: El uso del Hunter es exclusivo para operaciones especiales, secuestros, reconocimientos de zonas e intentos de ataque. En operaciones tiene el mismo uso del HYDRA, pero en secuestros solo se podrá usar la ametralladora en caso de un ataque que lo justifique.</p><p>Se permiten los siguientes puntos de corrupción: maltrato, insultos, liberación de prisioneros, sobornos no mayores a 50 millones (restringido a rangos Sargento Mayor en adelante). Cualquier otro tipo de corrupción no mencionada llevará un BAN de 120 horas.</p><p>Está totalmente prohibido usar fuera de servicio conjuntos de ropa pertenecientes al uniforme de servicio de tu facción. Fuera de servicio solo podrás usar la Desert Eagle (DK) para defensa personal.</p><p>Solo se podrán usar armas como MP5 y DK únicamente para pinchar llantas.</p><p>Si la facción llega a 5 advertencias será limpiada completamente. Podrá tener un máximo de 40 miembros en el panel. Cuando un miembro se quiera retirar deberá borrar su dotación o entregarla a un general; el líder puede realizar un PK para borrar la memoria de su instancia en la policía.</p><p>Tiempo máximo en cárcel: 60 minutos. Queda prohibido usar el /tazer cuando el sujeto está en el agua.</p><p>Para escribir por /an se debe rolear en sus HQ y pertenecer a la división DIJIN o la división de investigación del ejército.</p><p>Para ingresar a una Zona Roja por una persecución deben ser mínimo 4 oficiales entre militares y policías colocando su respectivo entorno.</p><p>Para desmantelación de mafias o bandas deben tener la autorización de un CEO en adelante (deberá solicitarlo en ticket de Bandas). Cuando ocurre la desmantelación las propiedades serán expropiadas por la fiscalía general de la nación; el 20% del dinero y valor de autos pasa a la PD y EJC que hizo la investigación.</p><p>El líder de la Policía y el Ejército son los encargados de pagar a sus miembros y son los responsables totales del mismo. No podrán cometer ningún tipo de acto ilegal fuera de servicio. Solamente el Director de la Policía podrá declarar la alerta roja en la ciudad (podrán usar la fuerza contra cualquier persona que esté en las calles por 30 minutos).</p><p>Durante persecuciones está prohibido que PD/EJC abran fuego; solo se permite en el momento en que el otro bando inicie disparando hacia los oficiales implicados.</p>'></div>
+                <div data-titulo="Gobierno" data-numero="5" data-contenido='<p><strong>Gobierno</strong></p><p>Gobierno: Su función no es estar patrullando por la ciudad en busca de ilegales como si fuesen Policía o Ejército. No podrán realizar requisas rutinarias por la ciudad, solo podrán hacer estas requisas siempre y cuando las personas tengan un acercamiento hacia algún funcionario del gobierno.</p><p>Todas las facciones legales públicas (PD, EJC, EMS, MC) deberán acatar órdenes ya que son funcionarios de altos mandos que corresponderán a su trabajo. Los únicos que podrán portar armas pesadas (M4) serán los escoltas designados; ningún funcionario con cargos mayores podrá hacer uso de estas, solo se les permite el uso de DK.</p><p>Los abogados deberán tener su licencia aprobada por la gobernación para poder ejercer. El precio que podrá cobrar un abogado depende del caso; el público puede tener apoyo del estado en ciertos casos. La fianza únicamente podrá ser solicitada por el abogado si no es un delito que afecte a la administración pública y civil (tiroteo, secuestros, robos, violaciones). Estos delitos no podrán pagar fianza.</p><p>No podrán cometer ningún tipo de acto ilegal fuera de servicio.</p>'></div>
+                <div data-titulo="DIAN" data-numero="6" data-contenido='<p><strong>DIAN</strong></p><p>La DIAN es una facción encargada de cobrar impuestos a las demás facciones dentro de la ciudad Verso, la cual nos ayuda a controlar y estabilizar la economía. Dicha facción no funciona como las demás; algún miembro asignado ya sea del STAFF o algún Civil llevará el manejo de esta.</p><p>Esta facción no interviene en ningún rol dentro del servidor, por lo tanto no posee un reglamento tan extenso a diferencia de las demás facciones que podrán encontrar en la normativa general. Tiempos de cobro de IMPUESTO serán anunciados y manejados totalmente por el encargado actual de la facción.</p>'></div>
+                <div data-titulo="Transito Y Transporte" data-numero="7" data-contenido='<p><strong>Transito y Transporte</strong></p><p>No podrán usar armas para detener vehículos solo para defensa personal (NIP).</p><p>Deben dar 3 avisos por su anuncio global al sujeto dueño del vehículo antes de llevárselo para patios si está en ZS.</p><p>No se le debe colocar cepos a vehículos departamentales (EJC - PD - SURA).</p><p>Vehículos que estén dentro de casas no se le lleva a patios; debe estar afuera de la acera de la calle para llevártelo.</p><p>Deben rolear la subida, cepo, bajada del vehículo (PG2).</p><p>No se permite la corrupción de ningún tipo; esto llevará un ban dependiendo de la gravedad. Todo vehículo que participe en un acto ilegal debe ser inmovilizado. No retirar cepos de sus vehículos; esto será tomado como corrupción no autorizada (Ban 1 día).</p><p>Las ganancias de cepos se deben dividir en impuestos y miembros de tránsito. Siempre deben mantener su uniforme y placa en servicio. No podrán cometer ningún tipo de acto ilegal fuera de servicio.</p>'></div>
+                <div data-titulo="EMS" data-numero="8" data-contenido='<p><strong>EMS</strong></p><p>EMS: Siempre deben mantener su uniforme y placa en servicio. Deben atender prioritariamente a las facciones departamentales. En medio de un enfrentamiento no se podrá intervenir con ayuda médica, deberán esperar a que finalice y seguir las indicaciones del bando ganador en dado caso.</p><p>Los llamados no deberán ser atendidos si son fuera de la zona de rol; en ese caso el paciente tendrá que llamar a staff. Al atender a un civil implicado en un rol ilegal, no se le podrá brindar ayuda beneficiosa para su rol; en ese caso el médico será expulsado de la facción.</p><p>Deberán permitir 1 médico de combate para PD y EJC con el debido proceso (prácticas, instrucciones o comisión). Este mismo no podrá reanimar ni curar en medio de un tiroteo.</p><p>No podrán cometer ningún tipo de acto ilegal fuera de servicio.</p>'></div>
+                <div data-titulo="Organizaciones Ilegales" data-numero="9" data-contenido='<p><strong>Bandas</strong></p><p>No podrán hacer robos a banco, ni secuestro de líderes de facciones legales.</p><p>Su función es tráfico de drogas, conquista de territorios, guerras entre bandas, sicariato, robos a tiendas y encargos de mafias.</p><p>Deben manejar el armamento de bajo calibre como lo es (UZI, COLT, TEC-9, CUCHILLOS, BATES). Armas como el AK-47 solo podrán ser usadas en situaciones de enfrentamientos ya sea con otras bandas, mafias o contra la autoridad.</p><p>Máximo de 20 miembros y 2 Directivos.</p><p>Bajo ningún motivo o circunstancia podrán hacer atentados terroristas u roles grandes.</p><p><strong>Mafias</strong></p><p>Su función es robo a personas con poder y mucho dinero, secuestro de líderes de facciones legales e ilegales, terrorismo, generación de miedo, tráfico de armas y drogas usando como puentes a bandas.</p><p>Para poder secuestrar a líderes de facciones legales y ilegales deberán abrir ticket y tener la siguiente información del sujeto: DNI, lugar de sus casas, autos, cuenta bancaria, lugares frecuentes y familiares.</p><p>Podrán infiltrarse a facciones legales con autorización de un encargado de facciones mediante ticket y ser directivo o líder.</p><p>Al infiltrarse no deberán vender armas policiales o militares; liberación de sujetos cada 24 horas; sobornos máximo 50 millones cada 78 horas.</p><p>Máximo de 25 miembros y 2 Directivos.</p><p>Para realizar un acto terrorista deberá solicitarse un ticket.</p><p><strong>Importante</strong></p><p>Si su facción recibe una advertencia tendrá que pagarla en un plazo de 10 días hábiles; de lo contrario la facción será inhabilitada. Al pasar 1 semana de ser inhabilitada esta podrá ser eliminada.</p><p>Podrán realizar roles como vacunas a empresas, y todo lo que sea en un tono realista llevando en cuenta las posibilidades; la idea debe ser comunicada mediante ticket de soporte en Discord; si la idea no es relevante o es irreal será anulada.</p><p>El sicariato no contará como DM — para llevar a cabo un sicariato te deberán pagar y dar un motivo válido, descripción del sujeto completa y rasgos del mismo (guardar pruebas de la comunicación con quien te pagó) para evitar ser sancionado por DM.</p><p><strong>NO TODO SON DISPAROS</strong></p><p>No todo debe terminar en disparos; los roles agresivos pueden tener desenlaces distintos y no necesariamente deberán finalizar con heridos.</p><p>Reconocer a un enemigo y atacarlo de repente es considerado DM y es sancionable.</p>'></div>
+                <div data-titulo="Ítems En Inventario" data-numero="10" data-contenido='<p><strong>Ítems en inventario</strong></p><ul><li>Límite de cargadores: 12 en total (no por arma).</li><li>Límite de chalecos: 1 puesto y 2 en mochila.</li><li>Límite de items de curación: 7 en total.</li></ul><p>El incumplimiento de estas reglas puede ser sancionado por PowerGaming (PG).</p>'></div>
+                <div data-titulo="Durante Rol" data-numero="11" data-contenido='<p><strong>Reglas Durante Rol</strong></p><p>El rol se cancelará si ambas partes acuerdan cancelarlo o si el rol completa 1 hora o más; solo un encargado o superior puede cancelar con pruebas. Si un jugador muere durante un rol no podrá reincorporarse al mismo rol.</p><p>Se prohíbe el uso de chats de voz para coordinar rol; el uso de radio o chat faccionario es obligatorio. Abuso de comunicación OOC por canales IC se considerará MG.</p>'></div>
+                <div data-titulo="Vehículos Exclusivos" data-numero="12" data-contenido='<p><strong>Vehículos exclusivos</strong></p><p>Los vehículos exclusivos constituyen una categoría especial dentro del ámbito automotor del servidor. Estos modelos no se encuentran disponibles en el concesionario común ni pueden adquirirse libremente, ya que su importación está sujeta a un proceso regulado y limitado, con el fin de mantener su carácter distintivo y equilibrar la economía del servidor.</p><h3>Importación controlada</h3><p>La única forma de obtenerlos es mediante compras OOC por individual con el servidor / Mediante VIPS / Jugadores que ya los tengan y los vendan de forma IC</p><h3>Criterios de valorización</h3><p>El valor de un vehículo exclusivo no se determina únicamente por sus características técnicas, sino también por factores como:</p><ul><li>Su rareza (limitación en número de unidades).</li><li>El prestigio de la marca, modelo y velocidad en el contexto del rol.</li><li>La demanda de la comunidad en relación con su disponibilidad.</li></ul><p>Estos factores hacen que el precio de un vehículo exclusivo pueda variar significativamente con el tiempo.</p><h3>Normas económicas</h3><p>Los precios base de importación serán definidos por la administración, tomando en cuenta el equilibrio económico global del servidor.</p><p>La compra, venta o traspaso de vehículos exclusivos debe respetar los valores establecidos y no podrá hacerse a precios irrisorios que desvirtúen su valor real.</p><p>No se permite en lo absoluto inflar precios, esto llevará sanciones por incumplimiento de normativa e intento de lucro mediante acciones de trampa.</p><h3>Importancia en la economía del servidor</h3><p>Los vehículos exclusivos representan un símbolo de estatus y diferenciación, fomentando la competitividad y el rol económico.</p><p>Su correcta valorización protege la estabilidad del mercado, evitando la inflación y la pérdida de valor de otros bienes.</p>'></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="seccion">
+        <div class="container">
+            <h2 class="titulo-seccion">Contacto</h2>
+            <div class="contacto-contenedor">
+                <div class="formulario">
+                    <h3>Ponte en Contacto</h3>
+                    <form onsubmit="enviarMensaje(event)">
+                        <input type="text" placeholder="Tu nombre" required>
+                        <input type="email" placeholder="Tu email" required>
+                        <textarea placeholder="Tu mensaje" rows="5" required></textarea>
+                        <button type="submit" class="btn-principal">Enviar Mensaje</button>
+                    </form>
+                </div>
+                <div class="info-contacto">
+                    <h3>Nuestras Redes Sociales</h3>
+                    <div class="redes-sociales-grid">
+                        <div class="red-social-item">
+                            <a href="https://discord.gg/yQSAsnETwg" target="_blank" class="red-social-link discord">
+                                <i class="fab fa-discord"></i>
+                                <h4>Discord</h4>
+                                <p>Servidor oficial</p>
+                            </a>
+                        </div>
+                        <div class="red-social-item">
+                            <a href="https://youtube.com/@costartp" target="_blank" class="red-social-link youtube">
+                                <i class="fab fa-youtube"></i>
+                                <h4>YouTube</h4>
+                                <p>Contenido oficial</p>
+                            </a>
+                        </div>
+                        <div class="red-social-item">
+                            <a href="https://www.tiktok.com/@costa_roleplay25" target="_blank" class="red-social-link tiktok">
+                                <i class="fab fa-tiktok"></i>
+                                <h4>TikTok</h4>
+                                <p>Clips diarios</p>
+                            </a>
+                        </div>
+                        <div class="red-social-item">
+                            <a href="https://mail.google.com/mail/?view=cm&to=costaroleplay508@gmail.com" target="_blank" rel="noopener" class="red-social-link email">
+                                <i class="fas fa-envelope"></i>
+                                <h4>Email</h4>
+                                <p>costaroleplay508@gmail.com</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Costa Roleplay. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="funciones.js"></script>
+    <div class="credit">Creditos: Rean y Roro </div>
+</body>
+</html>

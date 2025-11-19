@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión - Costa Roleplay</title>
+    <link rel="icon" href="Logo Costa.jpeg" type="image/jpeg">
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Página de inicio de sesión separada -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="Logo Costa.jpeg" alt="Logo Costa" class="nav-logo-img">
+                <span>COSTA ROLEPLAY</span>
+            </div>
+            <div class="nav-actions">
+                <a href="index.html" class="nav-login">Inicio</a>
+                <a href="register.html" class="nav-login">Registrarse</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top:120px;">
+        <h1 class="titulo-seccion">Iniciar sesión</h1>
+        <div class="login-wrap">
+            <div class="login-card">
+                <div class="login-brand">
+                    <img src="Logo Costa.jpeg" alt="Logo Costa" class="login-logo">
+                    <h2>Costa Roleplay</h2>
+                </div>
+
+                <form id="loginForm" class="login-form">
+                    <div class="form-field">
+                        <label for="loginUser">Usuario</label>
+                        <div class="input-icon">
+                            <i class="fas fa-user"></i>
+                            <input id="loginUser" name="user" type="text" placeholder="Tu usuario" required />
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="loginPass">Contraseña</label>
+                        <div class="input-icon">
+                            <i class="fas fa-lock"></i>
+                            <input id="loginPass" name="pass" type="password" placeholder="Contraseña" required />
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <label class="checkbox">
+                            <input type="checkbox" name="remember">
+                            <span>Recordarme</span>
+                        </label>
+                        <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="submit" class="btn-principal">Entrar</button>
+                        <a href="register.html" class="btn-secondary">Crear cuenta</a>
+                    </div>
+
+                    <div id="loginMessage" class="login-message" aria-live="polite"></div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="funciones.js"></script>
+</body>
+</html>

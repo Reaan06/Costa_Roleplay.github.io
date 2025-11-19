@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil - Costa Roleplay</title>
+    <link rel="icon" href="Logo Costa.jpeg" type="image/jpeg">
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="Logo Costa.jpeg" alt="Logo Costa" class="nav-logo-img">
+                <span>COSTA ROLEPLAY</span>
+            </div>
+            <div class="nav-actions">
+                <a href="index.html" class="nav-login">Inicio</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top:120px;">
+        <h1 class="titulo-seccion">Mi perfil</h1>
+        <div id="profileBox" style="max-width:640px; margin:0 auto; background:rgba(20,20,20,0.6); padding:1.5rem; border-radius:10px;">
+            <p id="profileGreeting" style="font-size:1.1rem; color:var(--color-texto);"></p>
+            <p id="profileInfo" style="color:var(--color-texto-secundario);"></p>
+            <div style="margin-top:12px; display:flex; gap:8px;">
+                <button id="btnLogoutProfile" class="nav-logout">Cerrar sesión</button>
+                <a href="index.html" class="nav-login" style="padding:10px 14px; border-radius:8px; display:inline-flex; align-items:center;">Volver</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="funciones.js"></script>
+</body>
+</html>
